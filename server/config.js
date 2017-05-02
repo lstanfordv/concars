@@ -1,0 +1,10 @@
+var config = {};
+config.mongodb = {};
+config.server = {};
+config.server.port = process.env.WEB_PORT || 5001;
+config.mongodb.username = process.env.MONGODB_USERNAME || 'admin';
+config.mongodb.password = process.env.MONGODB_PASSWORD || '123456';
+config.mongodb.host = process.env.MONGODB_HOST || 'localhost';
+config.mongodb.port = process.env.MONGODB_PORT || '27017';
+config.mongodb.databaseName = process.env.MONGODB_NAME || 'concars';
+module.exports = config;
