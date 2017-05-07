@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Autosuggest from 'react-bootstrap-autosuggest'
-import { addCar, loadData } from '../utils'
-
+import Autosuggest from 'react-bootstrap-autosuggest';
+import { addCar, loadData } from '../utils';
+import {Button} from 'react-bootstrap';
 
 export default class AddCar extends Component {
 
@@ -20,15 +20,15 @@ export default class AddCar extends Component {
         this.onChangeYear=this.onChangeYear.bind(this)
         this.addLocalCar=this.addLocalCar.bind(this)
         this.returnFunc=this.returnFunc.bind(this)
-         
+      
         this.loadData=loadData.bind(this)
     }
 
     componentDidMount() {
-        
+      
     }
-
-
+    
+    
     onChangeName(n){
     
      this.setState({chosenName:n})
@@ -52,10 +52,37 @@ export default class AddCar extends Component {
       {addCar(this.state, this.returnFunc)}
     }
 
-
     render() {
 
-        var carNames=["Ford", "Tesla", "BMW", "Audi"];
+        var carNames=[
+          "Acura",
+          "BMW",
+          "Buick",
+          "Bugatti",
+          "Chrysler",
+          "Cadillac",
+          "Chevrolet",
+          "Dodge",
+          "Ford",
+          "GMC",
+          "Honda",
+          "Holden",
+          "Infiniti",
+          "Jaguar",
+          "Lotus",
+          "Lincoln",
+          "Aston Martin",
+          "Maserati",
+          "Mazda",
+          "Mercedes-Benz",
+          "Mercury",
+          "Nissan",
+          "Opel",
+          "Rolls Royce",
+          "Tesla",
+          "Toyota"
+        ];
+
         var allYears=[]
         for (var i=1999; i<2018; i++){
           var y=i.toString()
@@ -63,49 +90,35 @@ export default class AddCar extends Component {
           allYears.push(y)
         }
 
-        const dstyle={'text-align':'right'}
-        const tstyle={'width':'100%'}
+        const dstyle={'textAlign':'right', 'width':'100px' }
+       
 
         return ( 
-          <table style={tstyle}>
-          <tbody>
-            <tr>
-              <td>
-                <Autosuggest
-                style={tstyle}
+      
+          <tr>
+            <td width='50%'>
+              <Autosuggest
                 datalist={carNames}
                 placeholder="Add a name..."
                 valueIsItem
                 itemValuePropName="name"
                 onSelect={this.onChangeName}
-               />
-                </td>
-                 <td>
-                <Autosuggest
+             />
+              </td>
+               <td width='100%'>
+              <Autosuggest
                 datalist={allYears}
                 placeholder="Year of production..."
                 valueIsItem
                 itemValuePropName="name"
                 onSelect={this.onChangeYear}
-               />
-               </td>
-               </tr>
-               </tbody>
-               <tbody>
-               <tr>
-              <td>
-              </td> 
-               <td style={dstyle}>
-              <button onClick={this.addLocalCar}>Add Car</button>
-              </td>
-              </tr>
-              </tbody>
-          
-        
-          </table>
+             />
+            </td>
+            <td style={dstyle}>
+              <Button onClick={this.addLocalCar}>Add Car</Button>
+            </td>
+          </tr>
 
-        )
-        
+        )        
     }
-
 }

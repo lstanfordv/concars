@@ -29,6 +29,7 @@
     "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
     "express": "^4.15.2",
+    "json-loader": "^0.5.4",
     "mongodb": "^2.2.24",
     "react": "^15.5.4",
     "react-bootstrap": "^0.30.10",

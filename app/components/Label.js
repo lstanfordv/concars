@@ -31,7 +31,6 @@ export default class Label extends Component {
         this.deleteCar=deleteCar.bind(this)
 
 
-        //this.updateArc=updateArc.bind(this)
       
      
     }   
@@ -61,84 +60,101 @@ export default class Label extends Component {
 
     retFunc(){
 
-      console.log("retFunc")
       this.loadData("allcars", this.props.dataIsLoaded)
     }
+
     onBlur(e) {
       this.setState({ editing: "" })
-      //TODO: update node on db
     }
+
     onEnter(e){
       if(e.which==13){
         this.setState({ editing: "" })
-        var data={carName: this.state.carName, year:this.state.year, carIDX:this.state.IDX}
-        
+        var data={carName: this.state.carName, year:this.state.year, carIDX:this.state.IDX}        
         this.updateCar(data, this.retFunc)
-      
       }
     }
       
-
     renderItemOrEditField( ) {
-       const dStyle={
-        'fontSize':'12px',
-       
-   
-       }
+    
     
       
         if ( this.state.editing === "carName") {
           
           return (
-           <div>
+           <tr>
+  <td>
             <input type = 'text'
               value = { this.state.carName }
               onChange = { this.onChangeName }
               onBlur = { this.onBlur }
               onKeyPress={ this.onEnter}
             />
-          </div>
+            </td>
+            <td>
+</td>
+<td>
+</td>
+          </tr>
             )
 
         } else if ( this.state.editing === "year") {
           
           return (
-           <div>
+           <tr>
+           <td>
+</td><td>
+
             <input type = 'text'
               value = { this.state.year }
               onChange = { this.onChangeYear}
               onBlur = { this.onBlur }
               onKeyPress={ this.onEnter}
             />
-          </div>
+            </td>
+            <td>
+</td>
+          </tr>
             )
 
         } else{
+          const dStyle={
+            'fontSize':'18px',
+            textAlign:'center',
+             'width':'100px'
+          }
          
           return (
-            <div>
-              <a onClick={ this.toggleEditing.bind(null, "year") } >
-                 <font color="black">( {this.state.year} ) </font>
-              </a>
-              <a onClick={ this.toggleEditing.bind(null, "carName") } >
-               <font color="black"> {this.state.carName}</font>
-              </a>
-              <a className="close" 
-                style={dStyle} 
-                href="#" 
-                onClick={() => this.deleteCar(this.props.carIDX, this.retFunc)}>
-                Delete car
-              </a>
-                       
-            </div>
+
+                <tr>
+                  
+                  <td width='50%' onClick={ this.toggleEditing.bind(null, "carName") } >
+                    <font color="blue"> {this.state.carName}</font>
+                  </td>
+                  <td width='100%' onClick={ this.toggleEditing.bind(null, "year") } >
+                    <font color="black"> {this.state.year}  </font>
+                  </td>
+                  <td className="close" 
+                    style={dStyle} 
+                    href="#" 
+                    onClick={() => this.deleteCar(this.props.carIDX, this.retFunc)}>
+                    X
+                  </td>
+                
+              </tr>
+              
+            
            
           )      
        }
     }
   
     render() {
-     
-      return (<div>{this.renderItemOrEditField()}</div> )
+     const pstyle={
+        fontSize: '18px',
+        lineHeight: '2em'   
+     }
+      return (<table style ={pstyle}>{this.renderItemOrEditField()}</table> )
    
     }
    

@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+:global html.PublicLayout,
+:global html.PublicLayout body {
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.pageContent {
+    flex: 1;
+}
+
+.Main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.HeaderContainer {
+    background-color: rgb(63, 81, 181);
+}
+
+.Header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 64px;
+    max-width: 1100px;
+    margin: 0 auto;
+    line-height: normal;
+}
+
+.Logo {
+    padding: 20px;
+}
+
+.MobileMenu {
+    padding: 20px;
+    img {
+        height: 36px;
+        width: 36px;
+    }
+    @media(min-width: 1025px) {
+        display: none;
+    }
+}
+
+.Menu {
+    width: 100%;
+    display: none;
+    @media(min-width: 1025px) {
+        display: block;
+        width: auto;
+    }
+}
+
+:global .mobileMenuOpen {
+    #Menu {
+        display: block;
+    }
+    #menuIcon {
+        display: none;
+    }
+    #closeIcon {
+        display: block;
+    }
+}
+
+:global #MenuIcon {}
+
+:global #closeIcon {
+    display: none
+}
+
+// WEBPACK FOOTER //
+// ./app/components/PublicLayout/style.scss

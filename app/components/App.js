@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-// import TopBar from '../toolbars/TopBar';
-import { loadData, addCar/*, postData, deleteNode, deleteArc, addNode, addArc, updateArcIDX, updateNodeIDX  */} from '../utils';
+import { loadData, addCar } from '../utils';
 import Cars from '../views/Cars';
+import TopBar from '../toolbars/TopBar'
+import FooterBar from '../toolbars/FooterBar'
 
 
-import Menu from 'components/Menu';
+
 
 
 export default class About extends Component {
@@ -44,17 +45,19 @@ export default class About extends Component {
        this.state.allcars.map(function(car, c){
         console.log("render "+car.name)
        })
+
+      const mytt= "Here is a list of all the cars to which you have a connection."
                  
       
         return (<div>
-            		<Menu/>
-           		
-            		<Cars
+                  <TopBar titletext={mytt} />	
+
+            	   	<Cars
                         allcars={this.state.allcars}
                         dataIsLoaded={this.dataIsLoaded}
+                    />
 
-
-                    /> 			
+                  <FooterBar/>		
             	</div>
         );
     }
