@@ -73,8 +73,7 @@ export default class Cars extends Component {
                     dataIsLoaded={this.props.dataIsLoaded}
                 />
             
-            <div colspan="3">   <br/><br/>
-                    </div>
+            <br/><br/>
           
           <tr >
             <td width='50%'>
