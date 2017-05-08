@@ -72,7 +72,10 @@ export default class Cars extends Component {
                     allcars={this.props.allcars}
                     dataIsLoaded={this.props.dataIsLoaded}
                 />
-                    
+            
+            <div colspan="3">   <br/><br/>
+                    </div>
+          
           <tr >
             <td width='50%'>
            <b style={pstyle}>  MAKE </b>
