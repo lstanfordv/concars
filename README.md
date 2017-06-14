@@ -34,7 +34,7 @@ $ nodemon server.js
 - React handles state and renderings.
 - Bootstrap helps with CSS on buttons and textfields
 - Creating an API backend with express and mongodb 
-- API has CRUD functionality so far. 
+- API has CRUD functionality. 
 - Uses 'React Hot Loader' which makes it automatically refresh the client side code when changes are made and saved.
 - Possible to use 'Nodemon' when starting the server, which automatically updates and refreshes the server code when changed and saved.
 
